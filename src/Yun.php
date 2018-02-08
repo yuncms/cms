@@ -17,7 +17,7 @@ use GuzzleHttp\Client;
 class Yun extends Yii
 {
     /**
-     * Creates a Guzzle client configured with the given array merged with any default values in config/guzzle.php.
+     * Creates a Guzzle client configured with the given array merged with any default values.
      *
      * @param array $config Guzzle client config settings
      *
