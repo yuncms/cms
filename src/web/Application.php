@@ -7,6 +7,8 @@
 
 namespace yuncms\web;
 
+use Yun;
+
 /**
  * Class Application
  * @property Request $request The request component
@@ -19,5 +21,30 @@ namespace yuncms\web;
  */
 class Application extends \yii\web\Application
 {
+    /**
+     * @inheritdoc
+     */
+    public function setVendorPath($path)
+    {
+        parent::setVendorPath($path);
 
+        // Override the @bower and @npm aliases if using asset-packagist.org
+        // todo: remove this whenever Yii is updated with support for asset-packagist.org
+        $altBowerPath = $this->getVendorPath() . DIRECTORY_SEPARATOR . 'bower-asset';
+        $altNpmPath = $this->getVendorPath() . DIRECTORY_SEPARATOR . 'npm-asset';
+        if (is_dir($altBowerPath)) {
+            Yun::setAlias('@bower', $altBowerPath);
+        }
+        if (is_dir($altNpmPath)) {
+            Yun::setAlias('@npm', $altNpmPath);
+        }
+
+        // Override where Yii should find its asset deps
+        $libPath = Yun::getAlias('@lib');
+        Yun::setAlias('@bower/bootstrap/dist', $libPath . '/bootstrap');
+        Yun::setAlias('@bower/jquery/dist', $libPath . '/jquery');
+        Yun::setAlias('@bower/inputmask/dist', $libPath . '/inputmask');
+        Yun::setAlias('@bower/punycode', $libPath . '/punycode');
+        Yun::setAlias('@bower/yii2-pjax', $libPath . '/yii2-pjax');
+    }
 }
