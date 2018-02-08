@@ -9,11 +9,8 @@
 $vendorPath = dirname(__DIR__, 3);
 
 // Load the files
-$cmsPath = $vendorPath . '/yuncms/cms';
-$libPath = $cmsPath . '/lib';
-$srcPath = $cmsPath . '/src';
 require $vendorPath . '/yiisoft/yii2/Yii.php';
-require $srcPath . '/Yun.php';
+require $vendorPath . '/yuncms/cms/src/Yun.php';
 
 // Set aliases
-Yun::setAlias('@lib', $libPath);
+Yun::setAlias('@lib', $vendorPath . '/yuncms/cms/lib');
