@@ -8,6 +8,7 @@
 namespace yuncms\web;
 
 use Yun;
+use yuncms\base\ApplicationTrait;
 
 /**
  * Class Application
@@ -21,6 +22,8 @@ use Yun;
  */
 class Application extends \yii\web\Application
 {
+    use ApplicationTrait;
+
     /**
      * @inheritdoc
      */
