@@ -17,7 +17,9 @@ var jsDeps = [
 
 var staticDeps = [
     { srcGlob: 'node_modules/bootstrap/dist/css/*', dest: libPath+'bootstrap/css' },
-    { srcGlob: 'node_modules/bootstrap/dist/fonts/*', dest: libPath+'bootstrap/fonts' }
+    { srcGlob: 'node_modules/bootstrap/dist/fonts/*', dest: libPath+'bootstrap/fonts' },
+    { srcGlob: 'node_modules/font-awesome/css/*', dest: libPath+'font-awesome/css' },
+    { srcGlob: 'node_modules/font-awesome/fonts/*', dest: libPath+'font-awesome/fonts' }
 ];
 
 gulp.task('deps', function() {
