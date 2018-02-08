@@ -5,8 +5,8 @@
  * @license http://www.tintsoft.com/license/
  */
 
-use Yii;
 use GuzzleHttp\Client;
+use yii\helpers\VarDumper;
 
 /**
  * Class Yun
@@ -16,6 +16,25 @@ use GuzzleHttp\Client;
  */
 class Yun extends Yii
 {
+    /**
+     * @var \yuncms\web\Application|\yuncms\console\Application|\yii\console\Application|\yii\web\Application The application instance.
+     */
+    public static $app;
+
+    /**
+     * Displays a variable.
+     *
+     * @param mixed $var The variable to be dumped.
+     * @param int $depth The maximum depth that the dumper should go into the variable. Defaults to 10.
+     * @param bool $highlight Whether the result should be syntax-highlighted. Defaults to true.
+     *
+     * @return void
+     */
+    public static function dump($var, int $depth = 10, bool $highlight = true)
+    {
+        VarDumper::dump($var, $depth, $highlight);
+    }
+
     /**
      * Creates a Guzzle client configured with the given array merged with any default values.
      *
