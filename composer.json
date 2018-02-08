@@ -1,0 +1,40 @@
+{
+  "name": "yuncms/cms",
+  "description": "cms",
+  "keywords": [
+    "yuncms",
+    "Yii 2",
+    "framework",
+    "cms",
+    "project cms"
+  ],
+  "homepage": "http://www.yuncms.net",
+  "license": "proprietary",
+  "support": {
+    "issues": "https://github.com/yuncms/cms/issues?state=open",
+    "source": "https://github.com/yuncms/cms"
+  },
+  "require": {
+    "php": ">=7.0.0",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-openssl": "*",
+    "ext-pcre": "*",
+    "ext-pdo": "*",
+    "ext-zip": "*",
+    "composer/composer": "~1.5.2",
+    "yiisoft/yii2": "~2.0.0",
+    "yiisoft/yii2-swiftmailer": "~2.1.0",
+    "yiisoft/yii2-queue": "~2.0."
+  },
+  "autoload": {
+    "files": [
+      "Yun.php"
+    ],
+    "psr-4": {
+      "yuncms\\": "src/"
+    }
+  }
+}
