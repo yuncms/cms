@@ -25,9 +25,10 @@
     "ext-pdo": "*",
     "ext-zip": "*",
     "composer/composer": "~1.5.2",
+    "guzzlehttp/guzzle": "~6.3.0",
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-swiftmailer": "~2.1.0",
-    "yiisoft/yii2-queue": "~2.0."
+    "yiisoft/yii2-queue": "~2.0.0"
   },
   "autoload": {
     "psr-4": {
