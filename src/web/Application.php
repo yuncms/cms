@@ -49,5 +49,6 @@ class Application extends \yii\web\Application
         Yun::setAlias('@bower/inputmask/dist', $libPath . '/inputmask');
         Yun::setAlias('@bower/punycode', $libPath . '/punycode');
         Yun::setAlias('@bower/yii2-pjax', $libPath . '/yii2-pjax');
+        Yun::setAlias('@bower/font-awesome', $libPath . '/font-awesome');
     }
 }

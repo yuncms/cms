@@ -14,7 +14,7 @@ use yii\helpers\VarDumper;
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 1.0
  */
-class Yun extends Yii
+class Yun extends \Yii
 {
     /**
      * @var \yuncms\web\Application|\yuncms\console\Application|\yii\console\Application|\yii\web\Application The application instance.
