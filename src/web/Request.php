@@ -7,6 +7,8 @@
 
 namespace yuncms\web;
 
+use yuncms\base\RequestTrait;
+
 /**
  * Class Request
  * @package yuncms\web
@@ -16,6 +18,8 @@ namespace yuncms\web;
  */
 class Request extends \yii\web\Request
 {
+    use RequestTrait;
+
     public $ipHeaders = [
         'Client-IP',
         'X-Forwarded-For',

@@ -7,20 +7,15 @@
 
 namespace yuncms\console;
 
-use yuncms\base\ApplicationTrait;
+use yuncms\base\RequestTrait;
 
 /**
- * Class Application
- *
- * @property User $user             The user component
- * @package yuncms\console
+ * Class Request
  *
  * @author Tongle Xu <xutongle@gmail.com>
- * @since 1.0
+ * @since 3.0
  */
-class Application extends \yii\console\Application
+class Request extends \yii\console\Request
 {
-    use ApplicationTrait;
-
-
+    use RequestTrait;
 }
