@@ -75,7 +75,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
     //场景定义
     const SCENARIO_CREATE = 'create';//后台或控制台创建用户
     const SCENARIO_UPDATE = 'update';//后台或控制台修改用户
-    const SCENARIO_REGISTER = 'basic_create';//邮箱注册
+    const SCENARIO_REGISTER = 'basic_create';//基本邮箱注册
     const SCENARIO_EMAIL_REGISTER = 'email_create';//邮箱注册
     const SCENARIO_MOBILE_REGISTER = 'mobile_create';//手机号注册
     const SCENARIO_SETTINGS = 'settings';//更新
