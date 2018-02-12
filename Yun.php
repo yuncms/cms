@@ -8,13 +8,15 @@
 use GuzzleHttp\Client;
 use yii\helpers\VarDumper;
 
+require __DIR__ . '../../yiisoft/yii2/Yii.php';
+
 /**
  * Class Yun
  *
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 1.0
  */
-class Yun extends \Yii
+class Yun extends Yii
 {
     /**
      * @var \yuncms\web\Application|\yuncms\console\Application|\yii\console\Application|\yii\web\Application The application instance.
@@ -65,5 +67,7 @@ class Yun extends \Yii
 
         return new Client($guzzleConfig);
     }
-
 }
+
+// Set aliases
+Yun::setAlias('@resources', __DIR__ . '/resources');

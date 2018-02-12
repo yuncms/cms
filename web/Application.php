@@ -43,12 +43,11 @@ class Application extends \yii\web\Application
         }
 
         // Override where Yii should find its asset deps
-        $libPath = Yun::getAlias('@lib');
-        Yun::setAlias('@bower/bootstrap/dist', $libPath . '/bootstrap');
-        Yun::setAlias('@bower/jquery/dist', $libPath . '/jquery');
-        Yun::setAlias('@bower/inputmask/dist', $libPath . '/inputmask');
-        Yun::setAlias('@bower/punycode', $libPath . '/punycode');
-        Yun::setAlias('@bower/yii2-pjax', $libPath . '/yii2-pjax');
-        Yun::setAlias('@bower/font-awesome', $libPath . '/font-awesome');
+        Yun::setAlias('@bower/bootstrap/dist', '@resources/lib/bootstrap');
+        Yun::setAlias('@bower/jquery/dist', '@resources/lib/jquery');
+        Yun::setAlias('@bower/inputmask/dist', '@resources/lib/inputmask');
+        Yun::setAlias('@bower/punycode', '@resources/lib/punycode');
+        Yun::setAlias('@bower/yii2-pjax', '@resources/lib/yii2-pjax');
+        Yun::setAlias('@bower/font-awesome', '@resources/lib/font-awesome');
     }
 }
