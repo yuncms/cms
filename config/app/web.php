@@ -9,10 +9,11 @@ return [
         'response' => [
             'class' => yuncms\web\Response::class,
         ],
-        'urlManager' => [
-            'class' => yuncms\web\UrlManager::class,
-            'enablePrettyUrl' => true,
-            'ruleConfig' => ['class' => yuncms\web\UrlRule::class],
+        'user' => [
+            'class' => yuncms\web\User::class,
+            'enableAutoLogin' => true,
+            'loginUrl' => ['/user/security/login'],
+            'identityClass' => 'yuncms\models\User',
         ],
     ]
 ];

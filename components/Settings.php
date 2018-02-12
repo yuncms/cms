@@ -19,7 +19,7 @@ class Settings extends Component
     /**
      * @var string settings model. Make sure your settings model calls clearCache in the afterSave callback
      */
-    public $modelClass = 'yuncms\core\models\BaseSetting';
+    public $modelClass = 'yuncms\models\BaseSetting';
 
     /**
      * Model to for storing and retrieving settings
@@ -52,7 +52,7 @@ class Settings extends Component
      *
      * @var string cache key
      */
-    public $cacheKey = 'yuncms.core.settings';
+    public $cacheKey = 'yuncms.settings';
 
     /**
      * Holds a cached copy of the data for the current request
