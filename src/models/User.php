@@ -2,7 +2,7 @@
 
 namespace yuncms\cms\models;
 
-use Yii;
+use Yun;
 use yii\db\ActiveRecord;
 use yii\db\Query;
 use yii\helpers\ArrayHelper;
@@ -175,21 +175,21 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
             // username rules
             'usernameMatch' => ['username', 'match', 'pattern' => static::$usernameRegexp],
             'usernameLength' => ['username', 'string', 'min' => 3, 'max' => 50],
-            'usernameUnique' => ['username', 'unique', 'message' => Yii::t('user', 'This username has already been taken')],
+            'usernameUnique' => ['username', 'unique', 'message' => Yun::t('user', 'This username has already been taken')],
             'usernameTrim' => ['username', 'trim'],
 
             // nickname rules
             'nicknameRequired' => ['nickname', 'required', 'on' => [self::SCENARIO_EMAIL_REGISTER, self::SCENARIO_CONNECT]],
             'nicknameMatch' => ['nickname', 'match', 'pattern' => static::$nicknameRegexp],
             'nicknameLength' => ['nickname', 'string', 'min' => 3, 'max' => 255],
-            'nicknameUnique' => ['nickname', 'unique', 'message' => Yii::t('user', 'This nickname has already been taken')],
+            'nicknameUnique' => ['nickname', 'unique', 'message' => Yun::t('user', 'This nickname has already been taken')],
             'nicknameTrim' => ['nickname', 'trim'],
 
             // email rules
             'emailRequired' => ['email', 'required', 'on' => [self::SCENARIO_EMAIL_REGISTER]],
             'emailPattern' => ['email', 'email', 'checkDNS' => true],
             'emailLength' => ['email', 'string', 'max' => 255],
-            'emailUnique' => ['email', 'unique', 'message' => Yii::t('user', 'This email address has already been taken')],
+            'emailUnique' => ['email', 'unique', 'message' => Yun::t('user', 'This email address has already been taken')],
             'emailTrim' => ['email', 'trim'],
             'emailDefault' => ['email', 'default', 'value' => null],
 
@@ -197,7 +197,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
             'mobileRequired' => ['mobile', 'required', 'on' => [self::SCENARIO_MOBILE_REGISTER]],
             'mobilePattern' => ['mobile', 'match', 'pattern' => static::$mobileRegexp],
             'mobileLength' => ['mobile', 'string', 'max' => 11],
-            'mobileUnique' => ['mobile', 'unique', 'message' => Yii::t('user', 'This phone has already been taken')],
+            'mobileUnique' => ['mobile', 'unique', 'message' => Yun::t('user', 'This phone has already been taken')],
             'mobileDefault' => ['mobile', 'default', 'value' => null],
 
             // password rules
@@ -222,24 +222,24 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('user', 'ID'),
-            'username' => Yii::t('user', 'Username'),
-            'email' => Yii::t('user', 'Email'),
-            'mobile' => Yii::t('user', 'Mobile'),
-            'nickname' => Yii::t('user', 'Nickname'),
-            'auth_key' => Yii::t('user', 'Auth Key'),
-            'password_hash' => Yii::t('user', 'Password Hash'),
-            'access_token' => Yii::t('user', 'Access Token'),
-            'avatar' => Yii::t('user', 'Avatar'),
-            'unconfirmed_email' => Yii::t('user', 'Unconfirmed Email'),
-            'unconfirmed_mobile' => Yii::t('user', 'Unconfirmed Mobile'),
-            'registration_ip' => Yii::t('user', 'Registration Ip'),
-            'flags' => Yii::t('user', 'Flags'),
-            'email_confirmed_at' => Yii::t('user', 'Email Confirmed At'),
-            'mobile_confirmed_at' => Yii::t('user', 'Mobile Confirmed At'),
-            'blocked_at' => Yii::t('user', 'Blocked At'),
-            'created_at' => Yii::t('user', 'Created At'),
-            'updated_at' => Yii::t('user', 'Updated At'),
+            'id' => Yun::t('user', 'ID'),
+            'username' => Yun::t('user', 'Username'),
+            'email' => Yun::t('user', 'Email'),
+            'mobile' => Yun::t('user', 'Mobile'),
+            'nickname' => Yun::t('user', 'Nickname'),
+            'auth_key' => Yun::t('user', 'Auth Key'),
+            'password_hash' => Yun::t('user', 'Password Hash'),
+            'access_token' => Yun::t('user', 'Access Token'),
+            'avatar' => Yun::t('user', 'Avatar'),
+            'unconfirmed_email' => Yun::t('user', 'Unconfirmed Email'),
+            'unconfirmed_mobile' => Yun::t('user', 'Unconfirmed Mobile'),
+            'registration_ip' => Yun::t('user', 'Registration Ip'),
+            'flags' => Yun::t('user', 'Flags'),
+            'email_confirmed_at' => Yun::t('user', 'Email Confirmed At'),
+            'mobile_confirmed_at' => Yun::t('user', 'Mobile Confirmed At'),
+            'blocked_at' => Yun::t('user', 'Blocked At'),
+            'created_at' => Yun::t('user', 'Created At'),
+            'updated_at' => Yun::t('user', 'Updated At'),
         ];
     }
 
@@ -315,8 +315,8 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
             return $this->getAvatarUrl($this->id) . $avatarFileName . '?_t=' . $this->updated_at;
         } else {
             $avatarUrl = "/img/no_avatar_{$size}.gif";
-            if (Yii::getAlias('@webroot', false)) {
-                $baseUrl = UserAsset::register(Yii::$app->view)->baseUrl;
+            if (Yun::getAlias('@webroot', false)) {
+                $baseUrl = UserAsset::register(Yun::$app->view)->baseUrl;
                 return Url::to($baseUrl . $avatarUrl, true);
             } else {
                 return '';
@@ -455,7 +455,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
      */
     public function validatePassword($password)
     {
-        return Yii::$app->security->validatePassword($password, $this->password_hash);
+        return Yun::$app->security->validatePassword($password, $this->password_hash);
     }
 
     /**
@@ -475,7 +475,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
      */
     public function generateAuthKey()
     {
-        $this->auth_key = Yii::$app->security->generateRandomString();
+        $this->auth_key = Yun::$app->security->generateRandomString();
     }
 
     /**
@@ -485,7 +485,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
      */
     public function generateAccessToken()
     {
-        $this->access_token = Yii::$app->security->generateRandomString();
+        $this->access_token = Yun::$app->security->generateRandomString();
     }
 
     /**
@@ -532,7 +532,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
      */
     public function block()
     {
-        return (bool)$this->updateAttributes(['blocked_at' => time(), 'auth_key' => Yii::$app->security->generateRandomString()]);
+        return (bool)$this->updateAttributes(['blocked_at' => time(), 'auth_key' => Yun::$app->security->generateRandomString()]);
     }
 
     /**
@@ -597,16 +597,16 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
         if ($token instanceof UserToken && !$token->isExpired) {
             $token->delete();
             if (($success = $this->setEmailConfirm())) {
-                Yii::$app->user->login($this, $this->getSetting('rememberFor'));
-                $message = Yii::t('user', 'Thank you, registration is now complete.');
+                Yun::$app->user->login($this, $this->getSetting('rememberFor'));
+                $message = Yun::t('user', 'Thank you, registration is now complete.');
             } else {
-                $message = Yii::t('user', 'Something went wrong and your account has not been confirmed.');
+                $message = Yun::t('user', 'Something went wrong and your account has not been confirmed.');
             }
         } else {
             $success = false;
-            $message = Yii::t('user', 'The confirmation link is invalid or expired. Please try requesting a new one.');
+            $message = Yun::t('user', 'The confirmation link is invalid or expired. Please try requesting a new one.');
         }
-        Yii::$app->session->setFlash($success ? 'success' : 'danger', $message);
+        Yun::$app->session->setFlash($success ? 'success' : 'danger', $message);
         return $success;
     }
 
@@ -628,30 +628,30 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
             UserToken::TYPE_CONFIRM_OLD_EMAIL
         ]])->one();
         if (empty($this->unconfirmed_email) || $token === null || $token->isExpired) {
-            Yii::$app->session->setFlash('danger', Yii::t('user', 'Your confirmation token is invalid or expired'));
+            Yun::$app->session->setFlash('danger', Yun::t('user', 'Your confirmation token is invalid or expired'));
             return false;
         } else {
             $token->delete();
             if (empty($this->unconfirmed_email)) {
-                Yii::$app->session->setFlash('danger', Yii::t('user', 'An error occurred processing your request'));
+                Yun::$app->session->setFlash('danger', Yun::t('user', 'An error occurred processing your request'));
                 return false;
             } elseif (static::find()->where(['email' => $this->unconfirmed_email])->exists() == false) {
                 if ($this->getSetting('emailChangeStrategy') == Settings::STRATEGY_SECURE) {
                     switch ($token->type) {
                         case UserToken::TYPE_CONFIRM_NEW_EMAIL:
                             $this->flags |= self::NEW_EMAIL_CONFIRMED;
-                            Yii::$app->session->setFlash('success', Yii::t('user', 'Awesome, almost there. Now you need to click the confirmation link sent to your old email address'));
+                            Yun::$app->session->setFlash('success', Yun::t('user', 'Awesome, almost there. Now you need to click the confirmation link sent to your old email address'));
                             break;
                         case UserToken::TYPE_CONFIRM_OLD_EMAIL:
                             $this->flags |= self::OLD_EMAIL_CONFIRMED;
-                            Yii::$app->session->setFlash('success', Yii::t('user', 'Awesome, almost there. Now you need to click the confirmation link sent to your new email address'));
+                            Yun::$app->session->setFlash('success', Yii::t('user', 'Awesome, almost there. Now you need to click the confirmation link sent to your new email address'));
                             break;
                     }
                 }
                 if ($this->getSetting('emailChangeStrategy') == Settings::STRATEGY_DEFAULT || ($this->flags & self::NEW_EMAIL_CONFIRMED && $this->flags & self::OLD_EMAIL_CONFIRMED)) {
                     $this->email = $this->unconfirmed_email;
                     $this->unconfirmed_email = null;
-                    Yii::$app->session->setFlash('success', Yii::t('user', 'Your email address has been changed'));
+                    Yun::$app->session->setFlash('success', Yun::t('user', 'Your email address has been changed'));
                 }
                 $this->save(false);
                 return true;
@@ -683,9 +683,9 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
             /** @var UserToken $token */
             $token = new UserToken(['type' => UserToken::TYPE_CONFIRMATION]);
             $token->link('user', $this);
-            $this->sendMessage($this->email, Yii::t('user', 'Welcome to {0}', Yii::$app->name), 'welcome', ['user' => $this, 'token' => isset($token) ? $token : null, 'module' => $this->module, 'showPassword' => false]);
+            $this->sendMessage($this->email, Yun::t('user', 'Welcome to {0}', Yii::$app->name), 'welcome', ['user' => $this, 'token' => isset($token) ? $token : null, 'module' => $this->module, 'showPassword' => false]);
         } else {
-            Yii::$app->user->login($this, $this->getSetting('rememberFor'));
+            Yun::$app->user->login($this, $this->getSetting('rememberFor'));
         }
         $this->trigger(self::AFTER_REGISTER);
         return true;
@@ -706,7 +706,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
         if (!$this->save()) {
             return false;
         }
-        $this->sendMessage($this->email, Yii::t('user', 'Welcome to {0}', Yii::$app->name), 'welcome', ['user' => $this, 'token' => null, 'module' => $this->module, 'showPassword' => true]);
+        $this->sendMessage($this->email, Yun::t('user', 'Welcome to {0}', Yun::$app->name), 'welcome', ['user' => $this, 'token' => null, 'module' => $this->module, 'showPassword' => true]);
         $this->trigger(self::AFTER_CREATE);
         return true;
     }
@@ -728,8 +728,8 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
         if ($insert) {
             $this->generateAccessToken();
             $this->generateAuthKey();
-            if (Yii::$app instanceof WebApplication) {
-                $this->registration_ip = Yii::$app->request->getUserIP();
+            if (Yun::$app instanceof WebApplication) {
+                $this->registration_ip = Yun::$app->request->getUserIP();
             }
             if ($this->username == null) {
                 $this->username = $this->generateUsername();
@@ -804,8 +804,8 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
      */
     public function loadAllowance($request, $action)
     {
-        $allowance = Yii::$app->cache->GET($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance');
-        $allowanceUpdatedAt = Yii::$app->cache->GET($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance_update_at');
+        $allowance = Yun::$app->cache->GET($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance');
+        $allowanceUpdatedAt = Yun::$app->cache->GET($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance_update_at');
         if ($allowance && $allowanceUpdatedAt) {
             return [$allowance, $allowanceUpdatedAt];
         } else {
@@ -822,7 +822,7 @@ class User extends ActiveRecord implements IdentityInterface, OAuth2IdentityInte
      */
     public function saveAllowance($request, $action, $allowance, $timestamp)
     {
-        Yii::$app->cache->set($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance', $allowance, 60);
-        Yii::$app->cache->set($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance_update_at', $timestamp, 60);
+        Yun::$app->cache->set($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance', $allowance, 60);
+        Yun::$app->cache->set($action->controller->id . ':' . $action->id . ':' . $this->id . '_allowance_update_at', $timestamp, 60);
     }
 }
