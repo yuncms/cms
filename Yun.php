@@ -71,3 +71,11 @@ class Yun extends Yii
 
 // Set aliases
 Yun::setAlias('@resources', __DIR__ . '/resources');
+
+if (getenv('APP_ENV') == 'Development') {
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
+    defined('YII_ENV') or define('YII_ENV', 'dev');
+} else {
+    defined('YII_DEBUG') or define('YII_DEBUG', false);
+    defined('YII_ENV') or define('YII_ENV', 'prod');
+}
