@@ -22,6 +22,15 @@ class Yun extends \Yii
     public static $app;
 
     /**
+     * Returns a string representing the current version of the Yii framework.
+     * @return string the version of Yii framework
+     */
+    public static function getYiiVersion()
+    {
+        return parent::getVersion();
+    }
+
+    /**
      * Displays a variable.
      *
      * @param mixed $var The variable to be dumped.
