@@ -17,5 +17,8 @@ namespace yuncms\web;
  */
 class User extends \yii\web\User
 {
-
+    /**
+     * @var string the class name of the [[identity]] object.
+     */
+    public $identityClass = 'yuncms\cms\models\User';
 }
