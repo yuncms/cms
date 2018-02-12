@@ -1,6 +1,6 @@
 <?php
 
-namespace yuncms\cms\models;
+namespace yuncms\models;
 
 use yii\db\ActiveQuery;
 use creocoder\taggable\TaggableQueryBehavior;

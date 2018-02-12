@@ -7,6 +7,10 @@
 
 namespace yuncms\web;
 
+use Yun;
+use yuncms\jobs\UserLastVisitJob;
+use yuncms\jobs\UserResetLoginDataJob;
+
 /**
  * Class User
  *
@@ -20,5 +24,14 @@ class User extends \yii\web\User
     /**
      * @var string the class name of the [[identity]] object.
      */
-    public $identityClass = 'yuncms\cms\models\User';
+    public $identityClass = 'yuncms\models\User';
+
+    /**
+     * @inheritdoc
+     */
+    protected function afterLogin($identity, $cookieBased, $duration)
+    {
+        Yun::$app->queue->push(new UserLastVisitJob(['user_id' => Yun::$app->user->getId(), 'time' => time()]));
+        parent::afterLogin($identity, $cookieBased, $duration);
+    }
 }

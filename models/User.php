@@ -1,6 +1,6 @@
 <?php
 
-namespace yuncms\cms\models;
+namespace yuncms\models;
 
 use Yun;
 use yii\db\ActiveRecord;
