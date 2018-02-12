@@ -6,7 +6,7 @@
  */
 namespace yuncms\helpers;
 
-use Yii;
+use Yun;
 use DateTime;
 use DateTimeZone;
 use yii\helpers\ArrayHelper;
@@ -62,7 +62,7 @@ class DateHelper
     {
         $week = $week ? $week : date('w');
         $weekArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        return Yii::t('yuncms', $weekArr [$week]);
+        return Yun::t('yuncms', $weekArr [$week]);
     }
 
     /**
@@ -118,7 +118,7 @@ class DateHelper
         } elseif ($hour >= 22 && $hour <= 23) {
             $period = '深夜';
         }
-        return Yii::t('app', $period);
+        return Yun::t('yuncms', $period);
     }
 
     /**

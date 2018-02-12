@@ -30,7 +30,6 @@ return [
         '.hgignore',
         '.hgkeep',
         '/messages',
-        '/BaseYii.php',
     ],
     'only' => [
         '*.php',
