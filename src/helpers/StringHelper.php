@@ -8,15 +8,35 @@
 namespace yuncms\helpers;
 
 /**
- * 扩展 yii\helpers\StringHelper
- *
- * @package yuncms\helpers
+ * Class StringHelper
  *
  * @author Tongle Xu <xutongle@gmail.com>
- * @since 1.0
+ * @since 3.0
  */
 class StringHelper extends \yii\helpers\StringHelper
 {
+    /**
+     * 提取两个字符串之间的值，不包括分隔符
+     *
+     * @param string $string 待提取的只付出
+     * @param string $start 开始字符串
+     * @param string|null $end 结束字符串，省略将返回所有的。
+     * @return bool string substring between $start and $end or false if either string is not found
+     */
+    public static function betweenStr($string, $start, $end = null)
+    {
+        if (($start_pos = strpos($string, $start)) !== false) {
+            if ($end) {
+                if (($end_pos = strpos($string, $end, $start_pos + strlen($start))) !== false) {
+                    return substr($string, $start_pos + strlen($start), $end_pos - ($start_pos + strlen($start)));
+                }
+            } else {
+                return substr($string, $start_pos);
+            }
+        }
+        return false;
+    }
+
     /**
      * Generates a valid v4 UUID string. See [http://stackoverflow.com/a/2040279/684]
      *

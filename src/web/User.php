@@ -9,10 +9,11 @@ namespace yuncms\web;
 
 /**
  * Class User
+ *
  * @package yuncms\web
  *
  * @author Tongle Xu <xutongle@gmail.com>
- * @since 1.0
+ * @since 3.0
  */
 class User extends \yii\web\User
 {
