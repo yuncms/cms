@@ -3,7 +3,7 @@
 return [
     'class' => \yuncms\console\Application::class,
     'bootstrap' => [
-        'queue',
+        'log','queue',
     ],
     'components' => [
         'request' => yuncms\console\Request::class,

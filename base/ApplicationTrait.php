@@ -18,5 +18,39 @@ namespace yuncms\base;
  */
 trait ApplicationTrait
 {
+    /**
+     * Returns the settings component.
+     * @return \yuncms\components\Settings the settings connection.
+     */
+    public function getSettings()
+    {
+        return $this->get('settings');
+    }
 
+    /**
+     * Returns the queue component.
+     * @return \yii\queue\Queue the queue connection.
+     */
+    public function getQueue()
+    {
+        return $this->get('queue');
+    }
+
+    /**
+     * Returns the notifications component.
+     * @return \yuncms\notifications\NotificationManager the notifications connection.
+     */
+    public function getNotifications()
+    {
+        return $this->get('notifications');
+    }
+
+    /**
+     * Returns the authClientCollection component.
+     * @return \yii\authclient\Collection the authClientCollection connection.
+     */
+    public function getAuthClientCollection()
+    {
+        return $this->get('authClientCollection');
+    }
 }

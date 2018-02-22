@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'bootstrap' => [
+        'log', 'queue',
+    ],
     'components' => [
         'request' => [
             'class' => yuncms\web\Request::class,
