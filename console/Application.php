@@ -7,6 +7,7 @@
 
 namespace yuncms\console;
 
+use Yii;
 use yuncms\base\ApplicationTrait;
 
 /**

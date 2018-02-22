@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'class' => \yuncms\web\Application::class,
     'components' => [
         'request' => [
             'class' => yuncms\web\Request::class,

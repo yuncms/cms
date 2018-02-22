@@ -16,6 +16,11 @@ namespace yuncms\helpers;
 class FileHelper extends \yii\helpers\FileHelper
 {
     /**
+     * @var string the path (or alias) of a PHP file containing MIME type information.
+     */
+    public static $mimeMagicFile = '@yuncms/config/mimeTypes.php';
+
+    /**
      * Checks if given fileName has a extension
      *
      * @param string $fileName the filename

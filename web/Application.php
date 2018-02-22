@@ -7,7 +7,7 @@
 
 namespace yuncms\web;
 
-use Yun;
+use Yii;
 use yuncms\base\ApplicationTrait;
 
 /**
@@ -36,18 +36,18 @@ class Application extends \yii\web\Application
         $altBowerPath = $this->getVendorPath() . DIRECTORY_SEPARATOR . 'bower-asset';
         $altNpmPath = $this->getVendorPath() . DIRECTORY_SEPARATOR . 'npm-asset';
         if (is_dir($altBowerPath)) {
-            Yun::setAlias('@bower', $altBowerPath);
+            Yii::setAlias('@bower', $altBowerPath);
         }
         if (is_dir($altNpmPath)) {
-            Yun::setAlias('@npm', $altNpmPath);
+            Yii::setAlias('@npm', $altNpmPath);
         }
 
         // Override where Yii should find its asset deps
-        Yun::setAlias('@bower/bootstrap/dist', '@resources/lib/bootstrap');
-        Yun::setAlias('@bower/jquery/dist', '@resources/lib/jquery');
-        Yun::setAlias('@bower/inputmask/dist', '@resources/lib/inputmask');
-        Yun::setAlias('@bower/punycode', '@resources/lib/punycode');
-        Yun::setAlias('@bower/yii2-pjax', '@resources/lib/yii2-pjax');
-        Yun::setAlias('@bower/font-awesome', '@resources/lib/font-awesome');
+        Yii::setAlias('@bower/bootstrap/dist', '@resources/lib/bootstrap');
+        Yii::setAlias('@bower/jquery/dist', '@resources/lib/jquery');
+        Yii::setAlias('@bower/inputmask/dist', '@resources/lib/inputmask');
+        Yii::setAlias('@bower/punycode', '@resources/lib/punycode');
+        Yii::setAlias('@bower/yii2-pjax', '@resources/lib/yii2-pjax');
+        Yii::setAlias('@bower/font-awesome', '@resources/lib/font-awesome');
     }
 }

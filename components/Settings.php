@@ -7,7 +7,7 @@
 
 namespace yuncms\components;
 
-use Yun;
+use Yii;
 use yii\base\Component;
 use yii\caching\Cache;
 
@@ -23,7 +23,7 @@ class Settings extends Component
 
     /**
      * Model to for storing and retrieving settings
-     * @var \yuncms\core\models\SettingInterface
+     * @var \yuncms\models\SettingInterface
      */
     protected $model;
 
@@ -71,10 +71,10 @@ class Settings extends Component
         $this->model = new $this->modelClass;
 
         if (is_string($this->cache)) {
-            $this->cache = Yun::$app->get($this->cache, false);
+            $this->cache = Yii::$app->get($this->cache, false);
         }
         if (is_string($this->frontCache)) {
-            $this->frontCache = Yun::$app->get($this->frontCache, false);
+            $this->frontCache = Yii::$app->get($this->frontCache, false);
         }
     }
 

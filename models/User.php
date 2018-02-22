@@ -2,7 +2,7 @@
 
 namespace yuncms\models;
 
-use Yun;
+use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Query;
 use yii\helpers\ArrayHelper;
@@ -11,7 +11,7 @@ use yii\helpers\Url;
 use yii\web\Application as WebApplication;
 use yii\web\IdentityInterface;
 use yii\filters\RateLimitInterface;
-use yuncms\core\helpers\PasswordHelper;
+use yuncms\helpers\PasswordHelper;
 use yuncms\oauth2\OAuth2IdentityInterface;
 use yuncms\tag\models\Tag;
 use yuncms\user\frontend\assets\UserAsset;

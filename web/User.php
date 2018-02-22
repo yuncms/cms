@@ -7,7 +7,7 @@
 
 namespace yuncms\web;
 
-use Yun;
+use Yii;
 use yuncms\jobs\UserLastVisitJob;
 use yuncms\jobs\UserResetLoginDataJob;
 
@@ -31,7 +31,7 @@ class User extends \yii\web\User
      */
     protected function afterLogin($identity, $cookieBased, $duration)
     {
-        Yun::$app->queue->push(new UserLastVisitJob(['user_id' => Yun::$app->user->getId(), 'time' => time()]));
+        Yii::$app->queue->push(new UserLastVisitJob(['user_id' => Yii::$app->user->getId(), 'time' => time()]));
         parent::afterLogin($identity, $cookieBased, $duration);
     }
 }

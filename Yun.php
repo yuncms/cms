@@ -8,7 +8,7 @@
 use GuzzleHttp\Client;
 use yii\helpers\VarDumper;
 
-require __DIR__ . '../../yiisoft/yii2/Yii.php';
+require __DIR__ . '/../../yiisoft/yii2/Yii.php';
 
 /**
  * Class Yun
@@ -70,4 +70,5 @@ class Yun extends Yii
 }
 
 // Set aliases
+Yun::setAlias('@yuncms', __DIR__);
 Yun::setAlias('@resources', __DIR__ . '/resources');
