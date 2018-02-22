@@ -43,11 +43,11 @@ class Application extends \yii\web\Application
         }
 
         // Override where Yii should find its asset deps
-        Yii::setAlias('@bower/bootstrap/dist', '@yuncms/resources/lib/bootstrap');
-        Yii::setAlias('@bower/jquery/dist', '@yuncms/resources/lib/jquery');
-        Yii::setAlias('@bower/inputmask/dist', '@yuncms/resources/lib/inputmask');
-        Yii::setAlias('@bower/punycode', '@yuncms/resources/lib/punycode');
-        Yii::setAlias('@bower/yii2-pjax', '@yuncms/resources/lib/yii2-pjax');
-        Yii::setAlias('@bower/font-awesome', '@yuncms/resources/lib/font-awesome');
+        Yii::setAlias('@bower/bootstrap/dist', $this->getVendorPath() . '/yuncms/cms/resources/lib/bootstrap');
+        Yii::setAlias('@bower/jquery/dist', $this->getVendorPath() . '/yuncms/cms/resources/lib/jquery');
+        Yii::setAlias('@bower/inputmask/dist', $this->getVendorPath() . '/yuncms/cms/resources/lib/inputmask');
+        Yii::setAlias('@bower/punycode', $this->getVendorPath() . '/yuncms/cms/resources/lib/punycode');
+        Yii::setAlias('@bower/yii2-pjax', $this->getVendorPath() . '/yuncms/cms/resources/lib/yii2-pjax');
+        Yii::setAlias('@bower/font-awesome', $this->getVendorPath() . '/yuncms/cms/resources/lib/font-awesome');
     }
 }
