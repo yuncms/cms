@@ -14,6 +14,7 @@
     "issues": "https://github.com/yuncms/cms/issues?state=open",
     "source": "https://github.com/yuncms/cms"
   },
+  "type": "yii2-extension",
   "require": {
     "php": ">=7.0.0",
     "ext-curl": "*",
