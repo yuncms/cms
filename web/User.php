@@ -24,13 +24,14 @@ class User extends \yii\web\User
     /**
      * @var string the class name of the [[identity]] object.
      */
-    public $identityClass = 'yuncms\models\User';
+    public $identityClass = \yuncms\models\User::class;
 
     /**
      * @inheritdoc
      */
     protected function afterLogin($identity, $cookieBased, $duration)
     {
+        //更新用户最后活动时间
         Yii::$app->queue->push(new UserLastVisitJob(['user_id' => Yii::$app->user->getId(), 'time' => time()]));
         parent::afterLogin($identity, $cookieBased, $duration);
     }

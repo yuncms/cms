@@ -16,6 +16,9 @@ return [
             'enableAutoLogin' => true,
             'loginUrl' => ['/user/security/login'],
             'identityClass' => 'yuncms\models\User',
+            'on afterLogin' => function () {
+                Yii::$app->queue->push(new UserLastVisitJob(['user_id' => Yii::$app->user->getId(), 'time' => time()]));
+            }
         ],
     ]
 ];

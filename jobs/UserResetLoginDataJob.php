@@ -11,7 +11,7 @@ use yii\queue\JobInterface;
 use yuncms\models\User;
 
 /**
- * Class UserResetLoginDataJob
+ * 重新设置用户登录时间、IP、和次数
  *
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 3.0

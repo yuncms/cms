@@ -11,7 +11,7 @@ use yii\base\BaseObject;
 use yii\queue\RetryableJobInterface;
 
 /**
- * Class DownloadJob
+ * 下载任务
  *
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 3.0

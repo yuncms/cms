@@ -12,7 +12,7 @@ use yii\queue\JobInterface;
 use yuncms\models\User;
 
 /**
- * Class UserLastVisitJob
+ * 更新用户最后活动时间
  *
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 3.0
