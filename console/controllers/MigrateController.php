@@ -15,5 +15,8 @@ namespace yuncms\console\controllers;
  */
 class MigrateController extends \yii\console\controllers\MigrateController
 {
-
+    /**
+     * {@inheritdoc}
+     */
+    public $templateFile = '@yuncms/views/migration.php';
 }

@@ -1,17 +1,26 @@
 <?php
 
 return [
-    'class' => \yuncms\console\Application::class,
     'bootstrap' => [
-        'log','queue',
+        'log', 'queue',
     ],
     'components' => [
         'request' => yuncms\console\Request::class,
-        'user' => yuncms\console\User::class,
     ],
     'controllerMap' => [
-        'migrate' => yuncms\console\controllers\MigrateController::class,
-        'templateFile' => '@yuncms/views/migration.php',
-        'migrationNamespaces' => array_values($migrationNamespaces),
+        'migrate' => [
+            'class' => yuncms\console\controllers\MigrateController::class,
+            'migrationPath'=>[
+                '@app/migrations',
+                '@yii/caching/migrations',
+                '@yii/log/migrations',
+                '@yii/web/migrations',
+                '@yii/rbac/migrations',
+                '@yii/i18n/migrations',
+            ],
+            'migrationNamespaces' => [
+                'yuncms\migrations',
+            ],
+        ],
     ],
 ];
