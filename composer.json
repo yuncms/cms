@@ -31,6 +31,7 @@
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-swiftmailer": "~2.1.0",
     "yiisoft/yii2-queue": "~2.0.0",
+    "yiisoft/yii2-authclient": "~2.1.0",
     "creocoder/yii2-taggable": "~2.0",
     "yiilab/yii2-fontawesome-asset": "~1.0"
   },
