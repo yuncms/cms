@@ -20,6 +20,9 @@ return [
             'class' => yuncms\components\Settings::class,
             'frontCache' => 'cache'
         ],
+        'qr' => [
+            'class' => Da\QrCode\Component\QrCodeComponent::class,
+        ],
         'notifications' => [
             'class' => yuncms\notifications\NotificationManager::class
         ],
