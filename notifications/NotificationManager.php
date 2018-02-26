@@ -15,6 +15,9 @@ namespace yuncms\notifications;
  */
 class NotificationManager
 {
+    public function cancel($id)
+    {
 
+    }
 }
 

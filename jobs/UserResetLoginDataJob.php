@@ -6,8 +6,6 @@
  */
 namespace yuncms\jobs;
 
-use yii\base\BaseObject;
-use yii\queue\JobInterface;
 use yuncms\models\User;
 
 /**
@@ -16,7 +14,7 @@ use yuncms\models\User;
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 3.0
  */
-class UserResetLoginDataJob extends BaseObject implements JobInterface
+class UserResetLoginDataJob extends BaseJob
 {
     /**
      * @var string

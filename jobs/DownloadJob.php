@@ -7,16 +7,13 @@
 
 namespace yuncms\jobs;
 
-use yii\base\BaseObject;
-use yii\queue\RetryableJobInterface;
-
 /**
  * 下载任务
  *
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 3.0
  */
-class DownloadJob extends BaseObject implements RetryableJobInterface
+class DownloadJob extends BaseJob
 {
     /**
      * @var string 下载Url
@@ -34,21 +31,5 @@ class DownloadJob extends BaseObject implements RetryableJobInterface
     public function execute($queue)
     {
         file_put_contents($this->file, file_get_contents($this->url));
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getTtr()
-    {
-        return 60;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function canRetry($attempt, $error)
-    {
-        return $attempt < 3;
     }
 }

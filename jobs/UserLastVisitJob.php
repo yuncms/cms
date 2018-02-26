@@ -7,8 +7,6 @@
 
 namespace yuncms\jobs;
 
-use yii\base\BaseObject;
-use yii\queue\JobInterface;
 use yuncms\models\User;
 
 /**
@@ -17,7 +15,7 @@ use yuncms\models\User;
  * @author Tongle Xu <xutongle@gmail.com>
  * @since 3.0
  */
-class UserLastVisitJob extends BaseObject implements JobInterface
+class UserLastVisitJob extends BaseJob
 {
     /**
      * @var int user id
